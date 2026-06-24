@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>신나는 자전거 하이킹 모험 가이드북</title>
+  <!-- 귀여운 한글 폰트 적용 -->
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Jua&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #FFFDF9;
+      --color-primary: #2D6A4F;
+      --color-primary-light: #D8F3DC;
+      --color-accent: #FF9F1C;
+      --color-accent-light: #FFE3C2;
+      --color-yellow: #FFD166;
+      --color-yellow-light: #FFF4D4;
+      --color-danger: #E63946;
+      --color-text: #2B2D42;
+      --color-text-muted: #6C757D;
+      --color-card-bg: #FFFFFF;
+      --font-title: 'Jua', sans-serif;
+      --font-accent: 'Gaegu', sans-serif;
+      --font-body: 'Nanum Gothic', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      padding-bottom: 80px; /* 하단 네비게이션 공간 */
+    }
+
+    /* 상단 헤더 */
+    header {
+      background: linear-gradient(135deg, var(--color-primary), #1B4332);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+      text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-family: var(--font-accent);
+      font-size: 1.3rem;
+      opacity: 0.9;
+    }
+
+    /* 메인 컨테이너 */
+    main {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* 카드 스타일 */
+    .card {
+      background-color: var(--color-card-bg);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      border: 3px solid #F1ECE3;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+    }
+
+    .card-title {
+      font-family: var(--font-title);
+      font-size: 1.6rem;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-title span.emoji {
+      font-size: 2rem;
+    }
+
+    /* 안전수칙 스타일 */
+    .safety-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .safety-item {
+      display: flex;
+      gap: 16px;
+      background-color: var(--color-bg);
+      padding: 16px;
+      border-radius: 16px;
+      border-left: 6px solid var(--color-accent);
+    }
+
+    .safety-item.blue-border {
+      border-left-color: #3A86C8;
+    }
+    .safety-item.green-border {
+      border-left-color: var(--color-primary);
+    }
+    .safety-item.red-border {
+      border-left-color: var(--color-danger);
+    }
+
+    .safety-icon {
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      flex-shrink: 0;
+    }
+
+    .safety-desc h3 {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+      color: var(--color-text);
+    }
+
+    .safety-desc p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+    }
+
+    /* 체크리스트 스타일 */
+    .checklist-container {
+      background-color: var(--color-yellow-light);
+      border: 3px dashed var(--color-yellow);
+      border-radius: 16px;
+      padding: 16px;
+      margin-top: 16px;
+    }
+
+    .checklist-title {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      color: #B58A00;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: bold;
+    }
+
+    .check-item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--color-accent);
+      cursor: pointer;
+    }
+
+    .badge-unlocked {
+      background: linear-gradient(45deg, var(--color-accent), var(--color-yellow));
+      color: white;
+      text-align: center;
+      padding: 12px;
+      border-radius: 12px;
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      margin-top: 12px;
+      display: none;
+      animation: pop 0.4s ease;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* 경로 탭 스타일 */
+    .tab-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      cursor: pointer;
+      background-color: #E9ECEF;
+      color: var(--color-text-muted);
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background-color: var(--color-primary);
+      color: white;
+      box-shadow: 0 4px 10px rgba(45, 106, 79, 0.2);
+    }
+
+    .route-section {
+      display: none;
+    }
+
+    .route-section.active {
+      display: block;
+    }
+
+    .route-info {
+      background-color: #F8F9FA;
+      padding: 12px 16px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+      border: 1px solid #E9ECEF;
+    }
+
+    .route-info strong {
+      color: var(--color-primary);
+    }
+
+    /* 타임라인 경로도 */
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+      margin: 20px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 5px;
+      bottom: 5px;
+      width: 4px;
+      background-color: var(--color-primary-light);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -24px;
+      top: 4px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: white;
+      border: 4px solid var(--color-primary);
+      z-index: 1;
+    }
+
+    .timeline-item.active-item::before {
+      background-color: var(--color-accent);
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 4px var(--color-accent-light);
+    }
+
+    .timeline-content h4 {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      color: var(--color-text);
+      margin-bottom: 2px;
+    }
+
+    .timeline-content p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+
+    /* 고도표 */
+    .elevation-chart {
+      background-color: #F0F7F4;
+      border-radius: 16px;
+      padding: 16px;
+      margin-top: 16px;
+      border: 1px solid var(--color-primary-light);
+    }
+
+    .elevation-title {
+      font-family: var(--font-title);
+      font-size: 1rem;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mountain-graphic {
+      width: 100%;
+      height: 120px;
+      margin-bottom: 8px;
+    }
+
+    /* 갈림길 퀴즈 게임 */
+    .fork-quiz {
+      background-color: #FDF0ED;
+      border: 2px solid #FCDFD7;
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .quiz-question {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      color: #9D2A11;
+      margin-bottom: 12px;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .quiz-btn {
+      padding: 12px;
+      border: 2px solid #F2BBAE;
+      border-radius: 12px;
+      background-color: white;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: bold;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .quiz-btn:hover {
+      background-color: #FFF5F2;
+      border-color: var(--color-danger);
+    }
+
+    .quiz-btn.correct {
+      background-color: var(--color-primary-light);
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .quiz-btn.wrong {
+      background-color: #FFE3E3;
+      border-color: var(--color-danger);
+      color: var(--color-danger);
+    }
+
+    .quiz-feedback {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      display: none;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .quiz-feedback.success {
+      background-color: #E8F5E9;
+      color: #2E7D32;
+      display: block;
+    }
+
+    .quiz-feedback.fail {
+      background-color: #FFEBEE;
+      color: #C62828;
+      display: block;
+    }
+
+    /* 하단 네비게이션 바 */
+    nav.bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background-color: white;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      z-index: 100;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .nav-item.active {
+      color: var(--color-primary);
+    }
+
+    .nav-item span.icon {
+      font-size: 1.5rem;
+      margin-bottom: 2px;
+    }
+
+    /* 섹션 전환 */
+    .section-content {
+      display: none;
+    }
+
+    .section-content.active {
+      display: block;
+    }
+
+    /* 갈림길 안내용 미니 맵 그래픽 */
+    .mini-map {
+      width: 100%;
+      height: 160px;
+      background-color: #EAF4F4;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      border: 2px solid #CCE3DE;
+      overflow: hidden;
+    }
+
+    /* 버튼 스타일 */
+    .btn-action {
+      background-color: var(--color-primary);
+      color: white;
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(45,106,79,0.2);
+      transition: all 0.2s;
+    }
+
+    .btn-action:hover {
+      background-color: #1B4332;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 전체 헤더 -->
+  <header>
+    <h1>🚴‍♂️ 나의 자전거 하이킹 모험 가이드</h1>
+    <p>서대구역에서 충주역까지의 안전하고 신나는 지도!</p>
+  </header>
+
+  <main>
+    <!-- 1. 홈 섹션 -->
+    <div id="section-home" class="section-content active">
+      <div class="card" style="text-align: center; background: linear-gradient(to bottom, #FFFFFF, #FDFBF7);">
+        <span style="font-size: 4rem;">🗺️</span>
+        <h2 style="font-family: var(--font-title); font-size: 1.8rem; margin: 12px 0 6px 0; color: var(--color-primary);">안녕, 꼬마 라이더들!</h2>
+        <p style="font-size: 1rem; color: var(--color-text-muted); margin-bottom: 16px;">
+          낙동강의 흐르는 강물을 따라 백두대간의 웅장한 산을 넘어, 넓은 평야로 달리는 멋진 하이킹에 온 것을 환영해요!<br>
+          자전거를 타고 바람을 가르며 멋진 추억을 만들기 전에, 아래 지도를 누르고 안전수칙과 길 안내를 꼭 읽어보세요!
+        </p>
+        <button class="btn-action" onclick="switchSection('safety')">🛡️ 자전거 모험 준비 시작하기</button>
+      </div>
+
+      <!-- 모험 요약 카드 -->
+      <div class="card">
+        <h3 class="card-title"><span class="emoji">⏱️</span>코스 요약 지도</h3>
+        <div style="background-color: #F8F9FA; border-radius: 12px; padding: 16px; border: 1px solid #E9ECEF;">
+          <p style="margin-bottom: 8px;">🚩 <strong>총 주행 거리:</strong> 약 191 km</p>
+          <p style="margin-bottom: 8px;">📅 <strong>추천 일정:</strong> 2박 3일 또는 3박 4일 일정</p>
+          <p style="margin-bottom: 8px;">⛰️ <strong>최대 도전 과제:</strong> 이화령 고개 (백두대간 정복!)</p>
+          <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 10px; border-top: 1px solid #E9ECEF; padding-top: 8px;">
+            ※ 카카오맵 공식 자전거 종주 자전거길을 기준으로 한 핵심 안내도입니다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 안전수칙 섹션 -->
+    <div id="section-safety" class="section-content">
+      <div class="card">
+        <h2 class="card-title"><span class="emoji">🛡️</span>모험의 황금 안전수칙!</h2>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 20px;">
+          우리의 최고 목표는 다치지 않고 집에 무사히 돌아가는 것이에요!
+        </p>
+
+        <div class="safety-grid">
+          <!-- 수칙 1 -->
+          <div class="safety-item red-border">
+            <div class="safety-icon">🪖</div>
+            <div class="safety-desc">
+              <h3>항상 헬멧은 단단하게!</h3>
+              <p>헬멧은 머리를 지켜주는 '생명의 모자'예요. 턱끈을 손가락 한 개 들어갈 정도로 꼭 조여매세요!</p>
+            </div>
+          </div>
+          <!-- 수칙 2 -->
+          <div class="safety-item">
+            <div class="safety-icon">🚫</div>
+            <div class="safety-desc">
+              <h3>과속 금지! 앞지르기 절대 금지!</h3>
+              <p>자전거 하이킹은 경주 레이싱이 아니에요. 앞 친구를 추월하려다 서로 부딪혀 크게 다칠 수 있어요!</p>
+            </div>
+          </div>
+          <!-- 수칙 3 -->
+          <div class="safety-item blue-border">
+            <div class="safety-icon">↔️</div>
+            <div class="safety-desc">
+              <h3>친구와 "안전거리" 지키기</h3>
+              <p>앞 친구가 갑자기 멈출 수 있으니, 내 자전거와 앞 자전거 사이에 자전거 3대가 들어갈 만큼 거리를 띄우세요!</p>
+            </div>
+          </div>
+          <!-- 수칙 4 -->
+          <div class="safety-item green-border">
+            <div class="safety-icon">👀</div>
+            <div class="safety-desc">
+              <h3>행인과 자동차는 항상 멈춰서 조심!</h3>
+              <p>길 걷는 사람을 보면 가볍게 '따릉' 울려 신호를 주고, 차가 다니는 길을 건널 땐 무조건 자전거에서 내려서 끌고 가세요!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 출발 전 자가 체크리스트 -->
+        <div class="checklist-container">
+          <div class="checklist-title">💡 출발 전, 나 스스로 안전 체크!</div>
+          <label class="check-item">
+            <input type="checkbox" onchange="checkAllList()"> 🪖 내 머리에 맞는 헬멧을 쓰고 끈을 조였나요?
+          </label>
+          <label class="check-item">
+            <input type="checkbox" onchange="checkAllList()"> 🚲 자전거 바퀴에 바람이 빵빵하고 브레이크가 잘 드나요?
+          </label>
+          <label class="check-item">
+            <input type="checkbox" onchange="checkAllList()"> 🥤 목마를 때 마실 시원한 물통을 장착했나요?
+          </label>
+          <label class="check-item">
+            <input type="checkbox" onchange="checkAllList()"> 👟 운동화 끈이 풀려서 자전거 체인에 끼지 않게 묶었나요?
+          </label>
+          <div id="unlocked-badge" class="badge-unlocked">✨ 준비 완료! 멋진 모험가가 되어 출발해 봐요! 🎉</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 경로안내 섹션 -->
+    <div id="section-route" class="section-content">
+      <div class="card">
+        <h2 class="card-title"><span class="emoji">🗺️</span> 전체 경로 한눈에 지도</h2>
+        
+        <!-- 탭 버튼 -->
+        <div class="tab-buttons">
+          <button id="btn-day1" class="tab-btn active" onclick="switchRouteTab(1)">1일차 (서대구-상주)</button>
+          <button id="btn-day2" class="tab-btn" onclick="switchRouteTab(2)">2일차 (상주-충주)</button>
+        </div>
+
+        <!-- 1일차 경로 -->
+        <div id="route-day1" class="route-section active">
+          <div class="route-info">
+            🚩 <strong>1일차 코스:</strong> 서대구역 ➡️ 상주보캠프존휴<br>
+            📏 <strong>거리:</strong> 약 96km (낙동강 자전거길 종주로)<br>
+            💡 <strong>난이도:</strong> 평지가 많아 시원하게 달리기 좋아요!
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item active-item">
+              <div class="timeline-content">
+                <h4>서대구역 (출발!)</h4>
+                <p>금호강 자전거 전용 도로를 따라 신나게 모험을 시작해요!</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>강정보 (디아크)</h4>
+                <p>우주선처럼 멋진 디아크 빌딩 앞에서 사진 찍기! 낙동강 길과 합류해요.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>칠곡보 인증센터</h4>
+                <p>시원한 낙동강 바람을 맞으며 도장을 꾸욱 찍어보세요!</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>구미보 / 낙단보</h4>
+                <p>강변 둑길을 따라 편안하게 페달을 밟아봐요. 중간중간 휴식이 필요해요!</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>상주보캠프존휴 (골인!)</h4>
+                <p>1일차 완성! 따뜻하고 아늑한 캠핑존에서 체력을 보충해 봐요!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2일차 경로 -->
+        <div id="route-day2" class="route-section">
+          <div class="route-info">
+            🚩 <strong>2일차 코스:</strong> 상주보 ➡️ 충주역<br>
+            📏 <strong>거리:</strong> 약 95km (새재 자전거길)<br>
+            💡 <strong>난이도:</strong> 백두대간 이화령 고개가 있어 도전정신이 필요해요!
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item active-item">
+              <div class="timeline-content">
+                <h4>상주보캠프존휴 (출발)</h4>
+                <p>새벽 공기를 마시며 2일차 힘차게 페달을 밟아요!</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>상풍교 갈림길 (매우 주의!)</h4>
+                <p>안동 방향이 아니에요! 새재길 방향 다리를 잘 확인하세요.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>문경 불정역</h4>
+                <p>예쁜 기차 모양으로 꾸며진 옛날 기차역에서 찰칵!</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>이화령 고개 (도전과 안전!)</h4>
+                <p>가장 높은 산길이에요. 힘들면 무조건 내려서 '끌바'! 내리막은 아주 천천히!</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>수안보 온천 / 충주역 (완주!)</h4>
+                <p>따뜻한 온천수 족욕을 즐기고, 충주역에서 완주의 기쁨을 만끽해요! 🎉</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 고도표 그래픽 -->
+          <div class="elevation-chart">
+            <div class="elevation-title">⛰️ 2일차 백두대간 고도 안내도</div>
+            <svg class="mountain-graphic" viewBox="0 0 300 120">
+              <!-- 배경선 -->
+              <line x1="10" y1="100" x2="290" y2="100" stroke="#CCD7D2" stroke-width="2" />
+              <!-- 산맥 그리기 -->
+              <path d="M 10 100 Q 50 100 80 95 L 140 20 L 170 85 L 210 90 L 250 80 Q 275 100 290 100" fill="none" stroke="#2D6A4F" stroke-width="4" stroke-linecap="round" />
+              <path d="M 10 100 Q 50 100 80 95 L 140 20 L 170 85 L 210 90 L 250 80 Q 275 100 290 100 L 290 115 L 10 115 Z" fill="rgba(216, 243, 220, 0.4)" />
+              
+              <!-- 텍스트/표식 -->
+              <circle cx="10" cy="100" r="4" fill="#FF9F1C" />
+              <text x="10" y="112" font-size="8" font-family="var(--font-body)" font-weight="bold">상주보</text>
+              
+              <circle cx="140" cy="20" r="5" fill="#E63946" />
+              <text x="140" y="12" font-size="9" font-family="var(--font-title)" text-anchor="middle" fill="#E63946">이화령 (해발 548m) ⚠️</text>
+              
+              <circle cx="210" cy="90" r="4" fill="#FF9F1C" />
+              <text x="210" y="103" font-size="8" font-family="var(--font-body)">수안보</text>
+
+              <circle cx="290" cy="100" r="4" fill="#2D6A4F" />
+              <text x="280" y="112" font-size="8" font-family="var(--font-body)" font-weight="bold" text-anchor="end">충주역</text>
+            </svg>
+            <p style="font-size: 0.8rem; color: #1B4332; text-align: center; font-weight: bold;">
+              ※ 이화령 정상까지의 긴 오르막 구간은 억지로 타지 말고 걸어서 끌고 가야 안전해요!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. 갈림길 주의 섹션 -->
+    <div id="section-forks" class="section-content">
+      <div class="card">
+        <h2 class="card-title"><span class="emoji">🔀</span> 길을 잃기 쉬운 마의 갈림길!</h2>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 20px;">
+          자전거 전용안내선(파란선)이 흐릿하거나 갈라지는 구간이에요. 친구들과 다 같이 올바른 방향을 선택해 봐요!
+        </p>
+
+        <!-- 퀴즈 1 -->
+        <div class="fork-quiz" id="quiz1">
+          <div class="quiz-question">📍 갈림길 1: 강정보(디아크) 부근 합류 지점</div>
+          <div class="mini-map">
+            <svg width="100%" height="100%" viewBox="0 0 300 160" style="background-color: #EBF2FA;">
+              <rect width="100%" height="100%" fill="#EDF2F4" />
+              <!-- 강 줄기 -->
+              <path d="M0 80 Q 150 90 300 70" stroke="#A9D6E5" stroke-width="24" fill="none" />
+              <!-- 다리 -->
+              <line x1="140" y1="40" x2="160" y2="120" stroke="#6C757D" stroke-width="8" />
+              <text x="150" y="35" font-size="8" text-anchor="middle" font-weight="bold">강정보/디아크</text>
+              <!-- 자전거도로 -->
+              <path d="M 50 150 Q 100 110 145 90" stroke="#3A86C8" stroke-width="4" fill="none" stroke-dasharray="2 2" />
+              <!-- 분기경로 -->
+              <path id="path-1-wrong" d="M 145 90 L 260 110" stroke="#E63946" stroke-width="4" fill="none" />
+              <path id="path-1-correct" d="M 145 90 L 150 10 L 200 5" stroke="#2D6A4F" stroke-width="4" fill="none" />
+              <text x="240" y="125" font-size="9" fill="#E63946" font-weight="bold">❌ 부산(하류)</text>
+              <text x="130" y="25" font-size="9" fill="#2D6A4F" font-weight="bold">⭕ 안동/상주(상류)</text>
+            </svg>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 12px;">
+            Q. 금호강 자전거길을 내려와 디아크 앞에서 낙동강 자전거길을 만났어요. 우리는 어느 쪽으로 올라가야 할까요?
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-btn" onclick="submitAnswer(1, 'wrong')">
+              A. 오른쪽 아래로 강을 따라 내려간다 (부산 방향)
+              <span>❌</span>
+            </button>
+            <button class="quiz-btn" onclick="submitAnswer(1, 'correct')">
+              B. 다리 근처 상주/안동 방향 표지판을 따라 올라간다 (상주 방향)
+              <span>⭕</span>
+            </button>
+          </div>
+          <div class="quiz-feedback" id="feedback1"></div>
+        </div>
+
+        <!-- 퀴즈 2 -->
+        <div class="fork-quiz" id="quiz2">
+          <div class="quiz-question">📍 갈림길 2: 가장 중요한 상풍교 갈림길!</div>
+          <div class="mini-map">
+            <svg width="100%" height="100%" viewBox="0 0 300 160">
+              <rect width="100%" height="100%" fill="#EDF6F9" />
+              <!-- 강 줄기 -->
+              <path d="M120 0 L 120 160" stroke="#83C5BE" stroke-width="20" fill="none" />
+              <!-- 다리 (상풍교) -->
+              <line x1="60" y1="80" x2="180" y2="80" stroke="#748CAB" stroke-width="10" />
+              <text x="120" y="70" font-size="8" text-anchor="middle" font-weight="bold">상풍교</text>
+              <!-- 경로 분기 -->
+              <path d="M 120 150 L 120 90" stroke="#0077B6" stroke-width="4" fill="none" />
+              <!-- 직진 (안동) -->
+              <path d="M 120 90 L 120 10" stroke="#E63946" stroke-width="4" fill="none" />
+              <!-- 우회전/새재길 -->
+              <path d="M 120 90 L 220 90 Q 240 110 250 150" stroke="#2D6A4F" stroke-width="4" fill="none" />
+              <text x="100" y="25" font-size="9" fill="#E63946" font-weight="bold">❌ 낙동강 종주 (안동댐)</text>
+              <text x="210" y="115" font-size="9" fill="#2D6A4F" font-weight="bold">⭕ 새재길 (문경/충주)</text>
+            </svg>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 12px;">
+            Q. 상풍교 다리 앞에 왔어요. 직진해서 계속 낙동강을 따라갈까요, 아니면 다리를 지나 새재 자전거길로 가야 할까요?
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-btn" onclick="submitAnswer(2, 'wrong')">
+              A. 낙동강 자전거길을 끝까지 달린다 (안동댐 방향 직진)
+              <span>❌</span>
+            </button>
+            <button class="quiz-btn" onclick="submitAnswer(2, 'correct')">
+              B. 새재 자전거길 안내판을 보고 꺾어서 진입한다 (충주 방향)
+              <span>⭕</span>
+            </button>
+          </div>
+          <div class="quiz-feedback" id="feedback2"></div>
+        </div>
+
+        <!-- 퀴즈 3 -->
+        <div class="fork-quiz" id="quiz3">
+          <div class="quiz-question">📍 갈림길 3: 행촌 교차로 (괴산 부근)</div>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 12px;">
+            Q. 이화령을 내려오면 행촌교차로 인증센터가 있어요. 여기서 여러 자전거길이 교차합니다. 어떤 이정표를 찾아서 가야 할까요?
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-btn" onclick="submitAnswer(3, 'wrong')">
+              A. 보강천을 지나는 '오천 자전거길' 표지판 방향으로 간다
+              <span>❌</span>
+            </button>
+            <button class="quiz-btn" onclick="submitAnswer(3, 'correct')">
+              B. '수안보 / 충주역' 방향의 새재길 연속 표지판을 보고 나아간다
+              <span>⭕</span>
+            </button>
+          </div>
+          <div class="quiz-feedback" id="feedback3"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 하단 네비게이션 -->
+  <nav class="bottom-nav">
+    <div id="nav-home" class="nav-item active" onclick="switchSection('home')">
+      <span class="icon">🏠</span>
+      <span>홈</span>
+    </div>
+    <div id="nav-safety" class="nav-item" onclick="switchSection('safety')">
+      <span class="icon">🛡️</span>
+      <span>안전수칙</span>
+    </div>
+    <div id="nav-route" class="nav-item" onclick="switchSection('route')">
+      <span class="icon">🗺️</span>
+      <span>전체경로</span>
+    </div>
+    <div id="nav-forks" class="nav-item" onclick="switchSection('forks')">
+      <span class="icon">🔀</span>
+      <span>주의갈림길</span>
+    </div>
+  </nav>
+
+  <script>
+    // 섹션 전환 함수
+    function switchSection(sectionId) {
+      // 모든 섹션 비활성화
+      const sections = document.querySelectorAll('.section-content');
+      sections.forEach(sec => sec.classList.remove('active'));
+
+      // 대상 섹션 활성화
+      const targetSection = document.getElementById('section-' + sectionId);
+      if (targetSection) {
+        targetSection.classList.add('active');
+      }
+
+      // 네비게이션 아이템 활성화 상태 업데이트
+      const navItems = document.querySelectorAll('.nav-item');
+      navItems.forEach(item => item.classList.remove('active'));
+
+      const activeNavItem = document.getElementById('nav-' + sectionId);
+      if (activeNavItem) {
+        activeNavItem.classList.add('active');
+      }
+
+      // 화면을 상단으로 부드럽게 스크롤
+      try {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch (e) {
+        window.scrollTo(0, 0);
+      }
+    }
+
+    // 경로 일차별 탭 전환 함수
+    function switchRouteTab(dayNum) {
+      // 탭 콘텐츠 토글
+      const day1Route = document.getElementById('route-day1');
+      const day2Route = document.getElementById('route-day2');
+      const day1Btn = document.getElementById('btn-day1');
+      const day2Btn = document.getElementById('btn-day2');
+
+      if (dayNum === 1) {
+        day1Route.classList.add('active');
+        day2Route.classList.remove('active');
+        day1Btn.classList.add('active');
+        day2Btn.classList.remove('active');
+      } else {
+        day2Route.classList.add('active');
+        day1Route.classList.remove('active');
+        day2Btn.classList.add('active');
+        day1Btn.classList.remove('active');
+      }
+    }
+
+    // 안전 체크리스트 완성 검증
+    function checkAllList() {
+      const checkboxes = document.querySelectorAll('.check-item input[type="checkbox"]');
+      let allChecked = true;
+      checkboxes.forEach(cb => {
+        if (!cb.checked) {
+          allChecked = false;
+        }
+      });
+
+      const badge = document.getElementById('unlocked-badge');
+      if (allChecked) {
+        badge.style.display = 'block';
+      } else {
+        badge.style.display = 'none';
+      }
+    }
+
+    // 퀴즈 채점 시스템
+    function submitAnswer(quizNum, status) {
+      const feedbackDiv = document.getElementById('feedback' + quizNum);
+      const quizCard = document.getElementById('quiz' + quizNum);
+      const buttons = quizCard.querySelectorAll('.quiz-btn');
+
+      // 기존 선택 스타일 초기화
+      buttons.forEach(btn => {
+        btn.classList.remove('correct');
+        btn.classList.remove('wrong');
+        btn.disabled = true; // 정답 제출 후 클릭 방지
+      });
+
+      // 피드백 메시지 설정
+      if (status === 'correct') {
+        feedbackDiv.className = 'quiz-feedback success';
+        
+        // 정답 효과음 대신 귀여운 한글 칭찬 텍스트
+        if (quizNum === 1) {
+          feedbackDiv.innerHTML = "✨ 참 잘했어요! 낙동강 강물을 따라서 위쪽(상주보)으로 거슬러 올라가야 우리가 원하는 종주를 마칠 수 있어요!";
+          buttons[1].classList.add('correct');
+        } else if (quizNum === 2) {
+          feedbackDiv.innerHTML = "✨ 우와, 자전거 박사님이네요! 상풍교에서 우회전해서 다리를 건너 문경 방향 '새재자전거길'을 타는 것이 가장 중요해요!";
+          buttons[1].classList.add('correct');
+        } else if (quizNum === 3) {
+          feedbackDiv.innerHTML = "✨ 완벽한 모험가 탄생! 오천 자전거길은 청주 방향이에요. 충주역으로 안전하게 완주하려면 '수안보/충주' 방향 표지판을 꼭 기억하세요!";
+          buttons[1].classList.add('correct');
+        }
+      } else {
+        feedbackDiv.className = 'quiz-feedback fail';
+        if (quizNum === 1) {
+          feedbackDiv.innerHTML = "😢 어이쿠! 부산 방향으로 내려가면 강 하류로 가버려요! 다시 표지판을 보고 '상주보' 방향을 골라보세요. (다시 도전하려면 새로고침하세요!)";
+          buttons[0].classList.add('wrong');
+        } else if (quizNum === 2) {
+          feedbackDiv.innerHTML = "😢 앗, 길을 잘못 들었어요! 직진하면 자전거길 끝인 안동댐이 나와요. 상풍교 다리 앞 갈림길 표지판에서 '새재 자전거길'을 꼭 선택하세요!";
+          buttons[0].classList.add('wrong');
+        } else if (quizNum === 3) {
+          feedbackDiv.innerHTML = "😢 어라라, 길을 잃었어요! 오천 자전거길로 가면 청주나 증평으로 멀리 가버려요! 수안보를 통해 충주역으로 향해야 올바른 완주 코스예요.";
+          buttons[0].classList.add('wrong');
+        }
+      }
+    }
+  </script>
+</body>
+</html>

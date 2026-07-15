@@ -812,6 +812,63 @@
           </div>
           <div class="quiz-feedback" id="feedback3"></div>
         </div>
+        <!-- 퀴즈 4 -->
+        <div class="fork-quiz" id="quiz4">
+          <div class="quiz-question">📍 갈림길 4: 서대구역 출발! 금호강 자전거길 찾아가기 🧭</div>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 12px;">
+            Q. 새로 만든 서대구역 앞 광장에서 드디어 출발했어요! 금호강 자전거길로 들어가고 싶은데, 복잡한 큰길(서대구공단)과 차들이 가득 차 있어요. 어떻게 가야 안전할까요?
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-btn" onclick="submitAnswer(4, 'wrong')">
+              A. 스마트폰 지도를 보며 차가 쌩쌩 다니는 도로 갓길로 빠르게 자전거를 타고 진입한다
+              <span>❌</span>
+            </button>
+            <button class="quiz-btn" onclick="submitAnswer(4, 'correct')">
+              B. 자전거에서 내려 보행자 횡단보도를 통해 인도 위로 이동하여, 공식 진입로까지 끌고 간다
+              <span>⭕</span>
+            </button>
+          </div>
+          <div class="quiz-feedback" id="feedback4"></div>
+        </div>
+
+        <!-- 퀴즈 5 -->
+        <div class="fork-quiz" id="quiz5">
+          <div class="quiz-question">📍 갈림길 5: 상주 경천대 - 악마의 고개냐, 안전한 평지냐! ⛰️</div>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 12px;">
+            Q. 상주보 근처에 도착하자 눈앞에 엄청나게 가파른 산속 길(경천대 고개)이 나타났어요! 그리고 옆에는 돌아서 가는 우회 표지판이 있네요. 초등학생 대원들은 어떤 길을 선택해야 할까요?
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-btn" onclick="submitAnswer(5, 'wrong')">
+              A. 자전거 하이킹의 묘미! 가파른 산길을 힘껏 페달을 밟아 도전해 본다
+              <span>❌</span>
+            </button>
+            <button class="quiz-btn" onclick="submitAnswer(5, 'correct')">
+              B. 체력을 아끼고 안전을 지키기 위해, 경천대 평지 우회 도로를 선택한다
+              <span>⭕</span>
+            </button>
+          </div>
+          <div class="quiz-feedback" id="feedback5"></div>
+        </div>
+
+        <!-- 퀴즈 6 -->
+        <div class="fork-quiz" id="quiz6">
+          <div class="quiz-question">📍 갈림길 6: 마지막 하이라이트! 충주역으로 들어가는 길 🏁</div>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 12px;">
+            Q. 충주 탄금대에 도착하니 남한강 자전거길이 이어집니다. 하지만 우리의 최종 골인 지점은 충주시내에 있는 '충주역'이에요. 여기서 어떻게 가야 할까요?
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-btn" onclick="submitAnswer(6, 'wrong')">
+              A. '한강(서울) 방향' 자전거길 이정표를 따라 계속 남한강을 보며 달린다
+              <span>❌</span>
+            </button>
+            <button class="quiz-btn" onclick="submitAnswer(6, 'correct')">
+              B. 탄금대 갈림길에서 남한강길을 빠져나와, 충주시내/충주역 이정표를 보고 진입한다
+              <span>⭕</span>
+            </button>
+          </div>
+          <div class="quiz-feedback" id="feedback6"></div>
+        </div>
+
       </div>
     </div>
   </main>
@@ -932,6 +989,15 @@
         } else if (quizNum === 3) {
           feedbackDiv.innerHTML = "✨ 완벽한 모험가 탄생! 오천 자전거길은 청주 방향이에요. 충주역으로 안전하게 완주하려면 '수안보/충주' 방향 표지판을 꼭 기억하세요!";
           buttons[1].classList.add('correct');
+        } else if (quizNum === 4) {
+          feedbackDiv.innerHTML = "✨ 훌륭한 안전 모험가! 출발 직후가 가장 복잡하고 사고가 나기 쉬워요. 서대구역 주변은 통행량이 많으므로 반드시 '내려서 끌고 가기(끌바)'로 안전하게 진입로까지 가도록 해요!";
+          buttons[1].classList.add('correct');
+        } else if (quizNum === 5) {
+          feedbackDiv.innerHTML = "✨ 최고로 현명한 선택! 경천대 본선 고개는 초등학생 대원들이 가기엔 경사가 너무 가파르고 미끄러워 매우 위험해요. 안전하고 평탄한 우회 도로(들판길)를 이용하여 상주보까지 부드럽게 나아갑시다!";
+          buttons[1].classList.add('correct');
+        } else if (quizNum === 6) {
+          feedbackDiv.innerHTML = "✨ 영광의 골인 완료! 탄금대에서 공식 종주 자전거길을 빠져나와 충주 시내 방향 인도와 안전 구역을 통해 진입해야 충주역에 갈 수 있어요. 드디어 191km 대장정 완주 성공! 🎉";
+          buttons[1].classList.add('correct');
         }
       } else {
         feedbackDiv.className = 'quiz-feedback fail';
@@ -943,6 +1009,15 @@
           buttons[0].classList.add('wrong');
         } else if (quizNum === 3) {
           feedbackDiv.innerHTML = "😢 어라라, 길을 잃었어요! 오천 자전거길로 가면 청주나 증평으로 멀리 가버려요! 수안보를 통해 충주역으로 향해야 올바른 완주 코스예요.";
+          buttons[0].classList.add('wrong');
+        } else if (quizNum === 4) {
+          feedbackDiv.innerHTML = "😢 위험해요! 서대구역 앞은 공단 근처라 대형 트럭과 고속 주행 차량이 많아 매우 위험해요! 차도를 타면 절대 안 되고, 안전하게 횡단보도와 인도로 우회하여 끌고 가야 해요.";
+          buttons[0].classList.add('wrong');
+        } else if (quizNum === 5) {
+          feedbackDiv.innerHTML = "😢 아이쿠! 경천대 고개는 성인 라이더들도 자전거에서 내려야 할 만큼 경사도가 최대 22%에 달하는 엄청나게 가파르고 미끄러운 산길이에요. 내려올 때 넘어져서 다칠 수 있으니 무조건 우회로를 타야 해요!";
+          buttons[0].classList.add('wrong');
+        } else if (quizNum === 6) {
+          feedbackDiv.innerHTML = "😢 어라라! 한강 방향으로 계속 가면 충주를 벗어나 서울/여주 방향으로 강을 따라가게 됩니다. 충주역 기차를 타려면 자전거 전용 도로에서 시내 방향으로 빠져나가야 해요!";
           buttons[0].classList.add('wrong');
         }
       }

@@ -334,6 +334,37 @@
       margin-bottom: 8px;
     }
 
+
+    /* 지도 바로가기 버튼 */
+    .map-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      text-decoration: none;
+      margin-top: 6px;
+      margin-right: 6px;
+      font-weight: bold;
+      transition: all 0.2s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .map-link-btn.kakao {
+      background-color: #FEE500;
+      border: 1px solid #FEE500;
+      color: #3C1E1E;
+    }
+    .map-link-btn.naver {
+      background-color: #03C75A;
+      border: 1px solid #03C75A;
+      color: #FFF;
+    }
+    .map-link-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
     /* 갈림길 퀴즈 게임 */
     .fork-quiz {
       background-color: #FDF0ED;
@@ -612,30 +643,50 @@
               <div class="timeline-content">
                 <h4>서대구역 (출발!)</h4>
                 <p>금호강 자전거 전용 도로를 따라 신나게 모험을 시작해요!</p>
+                <div>
+                  <a href="https://map.kakao.com/link/search/서대구역" target="_blank" class="map-link-btn kakao">💛 카카오맵</a>
+                  <a href="https://m.map.naver.com/search2/search.naver?query=서대구역" target="_blank" class="map-link-btn naver">💚 네이버지도</a>
+                </div>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-content">
                 <h4>강정보 (디아크)</h4>
                 <p>우주선처럼 멋진 디아크 빌딩 앞에서 사진 찍기! 낙동강 길과 합류해요.</p>
+                <div>
+                  <a href="https://map.kakao.com/link/search/디아크" target="_blank" class="map-link-btn kakao">💛 카카오맵</a>
+                  <a href="https://m.map.naver.com/search2/search.naver?query=디아크" target="_blank" class="map-link-btn naver">💚 네이버지도</a>
+                </div>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-content">
                 <h4>칠곡보 인증센터</h4>
                 <p>시원한 낙동강 바람을 맞으며 도장을 꾸욱 찍어보세요!</p>
+                <div>
+                  <a href="https://map.kakao.com/link/search/칠곡보인증센터" target="_blank" class="map-link-btn kakao">💛 카카오맵</a>
+                  <a href="https://m.map.naver.com/search2/search.naver?query=칠곡보인증센터" target="_blank" class="map-link-btn naver">💚 네이버지도</a>
+                </div>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-content">
                 <h4>구미보 / 낙단보</h4>
                 <p>강변 둑길을 따라 편안하게 페달을 밟아봐요. 중간중간 휴식이 필요해요!</p>
+                <div>
+                  <a href="https://map.kakao.com/link/search/구미보인증센터" target="_blank" class="map-link-btn kakao">💛 카카오 구미보</a>
+                  <a href="https://map.kakao.com/link/search/낙단보인증센터" target="_blank" class="map-link-btn kakao">💛 카카오 낙단보</a>
+                </div>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-content">
                 <h4>상주보캠프존휴 (골인!)</h4>
                 <p>1일차 완성! 따뜻하고 아늑한 캠핑존에서 체력을 보충해 봐요!</p>
+                <div>
+                  <a href="https://map.kakao.com/link/search/상주보캠프존휴" target="_blank" class="map-link-btn kakao">💛 카카오맵</a>
+                  <a href="https://m.map.naver.com/search2/search.naver?query=상주보캠프존휴" target="_blank" class="map-link-btn naver">💚 네이버지도</a>
+                </div>
               </div>
             </div>
           </div>
@@ -648,28 +699,39 @@
               <div style="margin-bottom: 12px; border-bottom: 1px solid #E9ECEF; padding-bottom: 8px;">
                 <strong style="color: var(--color-accent); font-family: var(--font-title);">🌅 아침 식사 추천 (0km ~ 15km 지점)</strong>
                 <p style="margin-top: 4px; color: var(--color-text-muted);">
-                  • <strong>선택 A (서대구역사 내):</strong> 소노야 서대구역점 (2층) - 우동, 라멘, 돈까스 [출발 전 든든하게 먹기 최고]<br>
+                  • <strong>선택 A (서대구역사 내):</strong> 소노야 서대구역점 (2층) - 우동, 라멘, 돈까스 [출발 전 든든하게 먹기 최고]
+                  <br><a href="https://map.kakao.com/link/search/소노야 서대구역점" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=소노야 서대구역점" target="_blank" class="map-link-btn naver">💚 네이버</a><br>
                   • <strong>선택 B (서대구역사 내):</strong> 이마트24 / 파리바게뜨 - 간편한 삼각김밥, 샌드위치, 모닝빵 [가벼운 출발용]<br>
-                  • <strong>선택 C (15km 지점 - 다사/강정보):</strong> 낙동강 국밥 또는 대백손칼국수 - 뜨끈하고 순한 국물 요리 [라이딩 시작 후 첫 아침 보급]<br>
+                  • <strong>선택 C (15km 지점 - 다사/강정보):</strong> 낙동강 국밥 또는 대백손칼국수 - 뜨끈하고 순한 국물 요리 [라이딩 시작 후 첫 아침 보급]
+                  <br><a href="https://map.kakao.com/link/search/대백손칼국수 강정보" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=대백손칼국수 강정보" target="_blank" class="map-link-btn naver">💚 네이버</a><br>
                   • <strong>선택 D (15km 지점 - 강정보):</strong> 스타벅스 대구강정보점 - 베이커리 및 음료 [기분 좋은 간식 보급]
+                  <br><a href="https://map.kakao.com/link/search/스타벅스 대구강정보점" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=스타벅스 대구강정보점" target="_blank" class="map-link-btn naver">💚 네이버</a>
                 </p>
               </div>
               <div style="margin-bottom: 12px; border-bottom: 1px solid #E9ECEF; padding-bottom: 8px;">
                 <strong style="color: var(--color-accent); font-family: var(--font-title);">☀️ 점심 식사 추천 (35km ~ 60km 지점)</strong>
                 <p style="margin-top: 4px; color: var(--color-text-muted);">
-                  • <strong>선택 A (35km 지점 - 왜관역 근처):</strong> 왜관 한미식당 - 코돈블루(치즈돈까스), 옛날왕돈까스, 수제 한미버거 [백종원의 3대천왕 출연 수제 명물 맛집]<br>
-                  • <strong>선택 B (35km 지점 - 왜관읍내):</strong> 황금원 - 야끼우동, 탕수육 [아이들이 가장 좋아하는 중식 명소]<br>
-                  • <strong>선택 C (40km 지점 - 칠곡보 센터):</strong> 칠곡보 매점 푸드코트 - 가마솥 즉석 끓인라면, 어묵, 핫도그 [빠르고 신나게 간이식 먹기 최고]<br>
+                  • <strong>선택 A (35km 지점 - 왜관역 근처):</strong> 왜관 한미식당 - 코돈블루(치즈돈까스), 옛날왕돈까스, 수제 한미버거 [백종원의 3대천왕 출연 수제 명물 맛집]
+                  <br><a href="https://map.kakao.com/link/search/왜관 한미식당" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=왜관 한미식당" target="_blank" class="map-link-btn naver">💚 네이버</a><br>
+                  • <strong>선택 B (35km 지점 - 왜관읍내):</strong> 황금원 - 야끼우동, 탕수육 [아이들이 가장 좋아하는 중식 명소]
+                  <br><a href="https://map.kakao.com/link/search/왜관 황금원" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=왜관 황금원" target="_blank" class="map-link-btn naver">💚 네이버</a><br>
+                  • <strong>선택 C (40km 지점 - 칠곡보 센터):</strong> 칠곡보 매점 푸드코트 - 가마솥 즉석 끓인라면, 어묵, 핫도그 [빠르고 신나게 간이식 먹기 최고]
+                  <br><a href="https://map.kakao.com/link/search/칠곡보 생태공원 매점" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=칠곡보 생태공원 매점" target="_blank" class="map-link-btn naver">💚 네이버</a><br>
                   • <strong>선택 D (60km 지점 - 구미보 근처):</strong> 구미보 매점 한식뷔페 - 라이더 맞춤형 한식 뷔페 [가성비와 배부름을 모두 채우는 든든 식사]
+                  <br><a href="https://map.kakao.com/link/search/구미보 매점" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=구미보 매점" target="_blank" class="map-link-btn naver">💚 네이버</a>
                 </p>
               </div>
               <div>
                 <strong style="color: var(--color-accent); font-family: var(--font-title);">🌙 저녁 식사 추천 (75km ~ 96km 지점)</strong>
                 <p style="margin-top: 4px; color: var(--color-text-muted);">
-                  • <strong>선택 A (96km 지점 - 상주보 골인):</strong> 상주보 한우촌 - 뚝배기 한우 소불고기 전골, 갈비탕 [단백질 충전 및 최고 영양 보급]<br>
-                  • <strong>선택 B (96km 지점 - 캠프존휴):</strong> 캠핑 삼겹살 BBQ 파티 - 텐트에서 구워 먹는 맛있는 바베큐 세트 [캠핑의 절대 로망!]<br>
-                  • <strong>선택 C (80km 지점 - 낙단보 근처 - 느린 주행팀용):</strong> 낙단보 한식뷔페 - 따뜻한 가정식 뷔페 [해가 지기 전 일찍 든든한 저녁 해결]<br>
+                  • <strong>선택 A (96km 지점 - 상주보 골인):</strong> 상주보 한우촌 - 뚝배기 한우 소불고기 전골, 갈비탕 [단백질 충전 및 최고 영양 보급]
+                  <br><a href="https://map.kakao.com/link/search/상주보한우촌" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=상주보한우촌" target="_blank" class="map-link-btn naver">💚 네이버</a><br>
+                  • <strong>선택 B (96km 지점 - 캠프존휴):</strong> 캠핑 삼겹살 BBQ 파티 - 텐트에서 구워 먹는 맛있는 바베큐 세트 [캠핑의 절대 로망!]
+                  <br><a href="https://map.kakao.com/link/search/상주보캠프존휴" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=상주보캠프존휴" target="_blank" class="map-link-btn naver">💚 네이버</a><br>
+                  • <strong>선택 C (80km 지점 - 낙단보 근처 - 느린 주행팀용):</strong> 낙단보 한식뷔페 - 따뜻한 가정식 뷔페 [해가 지기 전 일찍 든든한 저녁 해결]
+                  <br><a href="https://map.kakao.com/link/search/낙단보 매점" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=낙단보 매점" target="_blank" class="map-link-btn naver">💚 네이버</a><br>
                   • <strong>선택 D (95km 지점 - 경천섬 주변):</strong> 경천대 식당가 - 돼지 고추장 불고기 백반, 산채 비빔밥 [자연 속 부드럽고 푸짐한 정식]
+                  <br><a href="https://map.kakao.com/link/search/경천대식당" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=경천대식당" target="_blank" class="map-link-btn naver">💚 네이버</a>
                 </p>
               </div>
             </div>
@@ -689,30 +751,50 @@
               <div class="timeline-content">
                 <h4>상주보캠프존휴 (출발)</h4>
                 <p>새벽 공기를 마시며 2일차 힘차게 페달을 밟아요!</p>
+                <div>
+                  <a href="https://map.kakao.com/link/search/상주보캠프존휴" target="_blank" class="map-link-btn kakao">💛 카카오맵</a>
+                  <a href="https://m.map.naver.com/search2/search.naver?query=상주보캠프존휴" target="_blank" class="map-link-btn naver">💚 네이버지도</a>
+                </div>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-content">
                 <h4>상풍교 갈림길 (매우 주의!)</h4>
                 <p>안동 방향이 아니에요! 새재길 방향 다리를 잘 확인하세요.</p>
+                <div>
+                  <a href="https://map.kakao.com/link/search/상풍교인증센터" target="_blank" class="map-link-btn kakao">💛 카카오맵</a>
+                  <a href="https://m.map.naver.com/search2/search.naver?query=상풍교인증센터" target="_blank" class="map-link-btn naver">💚 네이버지도</a>
+                </div>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-content">
                 <h4>문경 불정역</h4>
                 <p>예쁜 기차 모양으로 꾸며진 옛날 기차역에서 찰칵!</p>
+                <div>
+                  <a href="https://map.kakao.com/link/search/불정역인증센터" target="_blank" class="map-link-btn kakao">💛 카카오맵</a>
+                  <a href="https://m.map.naver.com/search2/search.naver?query=불정역인증센터" target="_blank" class="map-link-btn naver">💚 네이버지도</a>
+                </div>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-content">
                 <h4>이화령 고개 (도전과 안전!)</h4>
                 <p>가장 높은 산길이에요. 힘들면 무조건 내려서 '끌바'! 내리막은 아주 천천히!</p>
+                <div>
+                  <a href="https://map.kakao.com/link/search/이화령인증센터" target="_blank" class="map-link-btn kakao">💛 카카오맵</a>
+                  <a href="https://m.map.naver.com/search2/search.naver?query=이화령인증센터" target="_blank" class="map-link-btn naver">💚 네이버지도</a>
+                </div>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-content">
                 <h4>수안보 온천 / 충주역 (완주!)</h4>
                 <p>따뜻한 온천수 족욕을 즐기고, 충주역에서 완주의 기쁨을 만끽해요! 🎉</p>
+                <div>
+                  <a href="https://map.kakao.com/link/search/충주역" target="_blank" class="map-link-btn kakao">💛 카카오 충주역</a>
+                  <a href="https://m.map.naver.com/search2/search.naver?query=수안보온천" target="_blank" class="map-link-btn naver">💚 네이버 수안보</a>
+                </div>
               </div>
             </div>
           </div>
@@ -753,28 +835,40 @@
               <div style="margin-bottom: 12px; border-bottom: 1px solid #E9ECEF; padding-bottom: 8px;">
                 <strong style="color: var(--color-accent); font-family: var(--font-title);">🌅 아침 식사 추천 (0km ~ 30km 지점)</strong>
                 <p style="margin-top: 4px; color: var(--color-text-muted);">
-                  • <strong>선택 A (0km 지점 - 캠프존/상주보):</strong> 상주보 매점 간편식 - 컵라면, 햇반, 삶은 계란, 따뜻한 우유 [새벽 일찍 라이딩 출발팀]<br>
-                  • <strong>선택 B (11km 지점 - 상풍교 앞):</strong> 상풍교 들꽃민박 식당 - 라이더 전문 정성 백반 뷔페 [종주 라이더들의 아침식사 성지!]<br>
-                  • <strong>선택 C (30km 지점 - 점촌역 인근):</strong> 전주 현대옥 문경점촌점 - 콩나물국밥, 뜨끈한 설렁탕 [초반 30km 가볍게 달린 후 한식 '아점' 보급]<br>
+                  • <strong>선택 A (0km 지점 - 캠프존/상주보):</strong> 상주보 매점 간편식 - 컵라면, 햇반, 삶은 계란, 따뜻한 우유 [새벽 일찍 라이딩 출발팀]
+                  <br><a href="https://map.kakao.com/link/search/상주보 매점" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=상주보 매점" target="_blank" class="map-link-btn naver">💚 네이버</a><br>
+                  • <strong>선택 B (11km 지점 - 상풍교 앞):</strong> 상풍교 들꽃민박 식당 - 라이더 전문 정성 백반 뷔페 [종주 라이더들의 아침식사 성지!]
+                  <br><a href="https://map.kakao.com/link/search/들꽃민박" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=들꽃민박" target="_blank" class="map-link-btn naver">💚 네이버</a><br>
+                  • <strong>선택 C (30km 지점 - 점촌역 인근):</strong> 전주 현대옥 문경점촌점 - 콩나물국밥, 뜨끈한 설렁탕 [초반 30km 가볍게 달린 후 한식 '아점' 보급]
+                  <br><a href="https://map.kakao.com/link/search/현대옥 문경점촌점" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=현대옥 문경점촌점" target="_blank" class="map-link-btn naver">💚 네이버</a><br>
                   • <strong>선택 D (30km 지점 - 점촌역 인근):</strong> 파리바게뜨 / 이삭토스트 문경점 - 햄치즈 토스트, 따뜻한 샌드위치 [서양식 아침 선호팀]
+                  <br><a href="https://map.kakao.com/link/search/이삭토스트 문경점" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=이삭토스트 문경점" target="_blank" class="map-link-btn naver">💚 네이버</a>
                 </p>
               </div>
               <div style="margin-bottom: 12px; border-bottom: 1px solid #E9ECEF; padding-bottom: 8px;">
                 <strong style="color: var(--color-accent); font-family: var(--font-title);">☀️ 점심 식사 추천 (45km ~ 65km 지점)</strong>
                 <p style="margin-top: 4px; color: var(--color-text-muted);">
-                  • <strong>선택 A (65km 지점 - 수안보 온천마을):</strong> 수안보 장군식당 - 꿩샤브샤브, 수제 꿩고기 만두전골, 뚝배기 불고기 [이화령 산맥 완등 성공 후 부드러운 만두 보신 전골]<br>
-                  • <strong>선택 B (45km 지점 - 문경읍내 - 이화령 고개 직전):</strong> 초원식당 또는 새재할매집 - 문경 약돌돼지 연탄 석쇠구이 [악마의 이화령 산을 넘기 전 든든하게 단백질 파워 가득 채우기!]<br>
-                  • <strong>선택 C (52km 지점 - 이화령 정상 휴게소):</strong> 이화령 휴게소 식당 - 수제 왕돈까스, 해물라면, 비빔밥 [해발 548m 백두대간 정상 정복 후 끝내주는 경치와 함께하는 꿀맛 급식]<br>
+                  • <strong>선택 A (65km 지점 - 수안보 온천마을):</strong> 수안보 장군식당 - 꿩샤브샤브, 수제 꿩고기 만두전골, 뚝배기 불고기 [이화령 산맥 완등 성공 후 부드러운 만두 보신 전골]
+                  <br><a href="https://map.kakao.com/link/search/수안보 장군식당" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=수안보 장군식당" target="_blank" class="map-link-btn naver">💚 네이버</a><br>
+                  • <strong>선택 B (45km 지점 - 문경읍내 - 이화령 고개 직전):</strong> 초원식당 또는 새재할매집 - 문경 약돌돼지 연탄 석쇠구이 [악마의 이화령 산을 넘기 전 든든하게 단백질 파워 가득 채우기!]
+                  <br><a href="https://map.kakao.com/link/search/새재할매집" target="_blank" class="map-link-btn kakao">💛 카카오 새재할매</a> <a href="https://map.kakao.com/link/search/초원식당 문경" target="_blank" class="map-link-btn kakao">💛 카카오 초원</a><br>
+                  • <strong>선택 C (52km 지점 - 이화령 정상 휴게소):</strong> 이화령 휴게소 식당 - 수제 왕돈까스, 해물라면, 비빔밥 [해발 548m 백두대간 정상 정복 후 끝내주는 경치와 함께하는 꿀맛 급식]
+                  <br><a href="https://map.kakao.com/link/search/이화령휴게소 식당" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=이화령휴게소 식당" target="_blank" class="map-link-btn naver">💚 네이버</a><br>
                   • <strong>선택 D (65km 지점 - 수안보 온천마을):</strong> 온천 기사식당 또는 상록식당 - 시골 청국장, 갈치조림, 오징어구이 [아이들 입맛에도 순하고 풍성한 백반 정식]
+                  <br><a href="https://map.kakao.com/link/search/온천부부식당" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=온천부부식당" target="_blank" class="map-link-btn naver">💚 네이버</a>
                 </p>
               </div>
               <div>
                 <strong style="color: var(--color-accent); font-family: var(--font-title);">🌙 저녁 식사 추천 (완주 및 대성공 골인 파티! 🎉)</strong>
                 <p style="margin-top: 4px; color: var(--color-text-muted);">
-                  • <strong>선택 A (95km 지점 - 충주역 피날레):</strong> 충주 중앙탑막국수 - 새콤달콤 메밀 막국수, 가마솥 옛날 메밀치킨 [바삭하고 고소한 치킨과 매콤한 막국수의 전설적인 메밀 치막 꿀조합!]<br>
-                  • <strong>선택 B (95km 지점 - 충주역 앞):</strong> 평화돈까스 또는 갈비랑 삼겹이랑 - 옛날 수제 왕돈까스, 달콤한 양념 갈비 [종주 마무리 기차 타기 전 가장 풍요로운 칼로리 복구식]<br>
-                  • <strong>선택 C (65km 지점 - 수안보에 머무는 슬로우 팀용):</strong> 대대로 전골 또는 네네치킨 수안보점 - 뜨끈하고 순한 버섯전골 또는 치킨앤 콜라 [온천욕 후 완전 힐링 휴식 식사]<br>
+                  • <strong>선택 A (95km 지점 - 충주역 피날레):</strong> 충주 중앙탑막국수 - 새콤달콤 메밀 막국수, 가마솥 옛날 메밀치킨 [바삭하고 고소한 치킨과 매콤한 막국수의 전설적인 메밀 치막 꿀조합!]
+                  <br><a href="https://map.kakao.com/link/search/중앙탑막국수 충주" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=중앙탑막국수 충주" target="_blank" class="map-link-btn naver">💚 네이버</a><br>
+                  • <strong>선택 B (95km 지점 - 충주역 앞):</strong> 평화돈까스 또는 갈비랑 삼겹이랑 - 옛날 수제 왕돈까스, 달콤한 양념 갈비 [종주 마무리 기차 타기 전 가장 풍요로운 칼로리 복구식]
+                  <br><a href="https://map.kakao.com/link/search/평화돈까스 충주" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=평화돈까스 충주" target="_blank" class="map-link-btn naver">💚 네이버</a><br>
+                  • <strong>선택 C (65km 지점 - 수안보에 머무는 슬로우 팀용):</strong> 대대로 전골 또는 네네치킨 수안보점 - 뜨끈하고 순한 버섯전골 또는 치킨앤 콜라 [온천욕 후 완전 힐링 휴식 식사]
+                  <br><a href="https://map.kakao.com/link/search/네네치킨 수안보점" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=네네치킨 수안보점" target="_blank" class="map-link-btn naver">💚 네이버</a><br>
                   • <strong>선택 D (90km 지점 - 충주 탄금대 근처):</strong> 중앙탑 메밀마당 - 원조 메밀 치킨과 메밀만두 [강변 종주길 마무리 직전의 바삭한 피날레]
+                  <br><a href="https://map.kakao.com/link/search/중앙탑메밀마당" target="_blank" class="map-link-btn kakao">💛 카카오</a> <a href="https://m.map.naver.com/search2/search.naver?query=중앙탑메밀마당" target="_blank" class="map-link-btn naver">💚 네이버</a>
                 </p>
               </div>
             </div>
